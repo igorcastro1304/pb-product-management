@@ -20,11 +20,11 @@ export default function LoginForm() {
     }
 
     return (
-        <form className="w-[50rem] bg-blue-200 p-4 flex flex-col justify-center gap-2" onSubmit={handleSubmit}>
-            <input className="p-1 rounded-sm" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
-            <input className="p-1 rounded-sm" placeholder="Digite sua senha" value={password} onChange={(event) => setPassword(event.target.value)} />
+        <form className="w-[20rem] p-4 flex flex-col justify-center gap-2 md:w-[30rem] lg:w-[40rem]" onSubmit={handleSubmit}>
+            <input className="p-1 rounded-sm border-black/70" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input className="p-1 rounded-sm border-black/70" type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setPassword(event.target.value)} />
 
-            <button className="bg-black text-yellow-400 p-2 rounded-sm">Fazer login</button>
+            <Button type="submit" className="bg-black text-yellow-400 p-2 rounded-sm">Fazer login</Button>
 
         </form>
     );

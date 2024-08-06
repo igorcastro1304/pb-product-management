@@ -14,16 +14,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const verifyUserLogin = () => {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            const uid = user.uid;
-            console.log(uid);
-        } else {
-            // User is signed out
-            // ...
-        }
-    });
+const verifyUserLogin = (callback) => {
+    return onAuthStateChanged(auth, callback);
 }
 
 const login = (email, password) => {
