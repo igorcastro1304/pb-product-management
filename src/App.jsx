@@ -11,7 +11,6 @@ function App() {
   const { currentUser } = useAuth();
   const location = useLocation();
   console.log(location.pathname);
-  console.log(currentUser);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -32,7 +31,7 @@ function App() {
             </div>
           </div>
         ) : (
-          <Outlet userIsLoggedIn={currentUser} />
+          <Outlet />
         )}
       </div>
       <footer className="max-h-[50px] flex-grow bg-black">aaaaaa</footer>
