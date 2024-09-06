@@ -25,7 +25,7 @@ function App() {
 
             <div className="flex flex-col items-center justify-center gap-5">
               <ArchiveBoxIcon className="flex items-center justify-center p-4 text-black bg-yellow-400 rounded-full"></ArchiveBoxIcon>
-              <Link to="login">
+              <Link to={`${currentUser ? "dashboard" : "login"}`}>
                 <Button>Comece a usar agora!</Button>
               </Link>
             </div>
