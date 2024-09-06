@@ -26,6 +26,7 @@ export default function Dashboard() {
             "Clique aqui para fazer o cadastro de novos usuários para ajudar no gerenciamento do estoque."
           }
           buttonText={"Cadastrar usuário"}
+          link={"/user/list"}
         />
 
         <Card
