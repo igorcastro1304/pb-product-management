@@ -31,34 +31,34 @@ export function Header(props) {
         variant="small"
         className="p-1 font-normal text-yellow-400"
       >
-        <a href="#" className="flex items-center"></a>
+        <Link to="#" className="flex items-center"></Link>
       </Typography>
       <Typography
         as="li"
         variant="small"
         className="p-1 font-normal text-yellow-400"
       >
-        <a href="#" className="flex items-center">
+        <Link to="/dashboard" className="flex items-center">
           {currentUser ? "Dashboard" : "Sobre Nós"}
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
         variant="small"
         className="p-1 font-normal text-yellow-400"
       >
-        <a href="#" className="flex items-center">
+        <Link to="/user/list" className="flex items-center">
           {currentUser ? "Usuários" : "Contate-nos"}
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
         variant="small"
         className="p-1 font-normal text-yellow-400"
       >
-        <a href="#" className="flex items-center">
+        <Link to="/product/list" className="flex items-center">
           {currentUser ? "Estoque" : "Política de Privacidade"}
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
@@ -84,7 +84,7 @@ export function Header(props) {
                     className="hidden text-yellow-400 lg:inline-block"
                     onClick={() => logout()}
                   >
-                    <span>Logout</span>
+                    <span className="text-base">Logout</span>
                   </Button>
                 </div>
               ) : (

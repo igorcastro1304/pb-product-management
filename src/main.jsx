@@ -8,6 +8,8 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import Dashboard from "./pages/dashboard/index.jsx";
 import UserList from "./pages/user/user-list/index.jsx";
 import UserForm from "./pages/user/user-form/index.jsx";
+import ProductList from "./pages/product/product-list/index.jsx";
+import ProductForm from "./pages/product/product-form/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "user/form",
         element: <UserForm />,
+      },
+      {
+        path: "product/list",
+        element: <ProductList />,
+      },
+      {
+        path: "product/form",
+        element: <ProductForm />,
       },
     ],
   },

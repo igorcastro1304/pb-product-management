@@ -10,6 +10,7 @@ export default function Dashboard() {
             "Clique aqui caso deseje visualizar os produtos que estão no estoque."
           }
           buttonText={"Acessar estoque"}
+          link={"/product/list"}
         />
 
         <Card
@@ -18,6 +19,7 @@ export default function Dashboard() {
             "Clique aqui para adicionar um novo produto, atualizar um produto existente, ou deletar um produto que não está mais no estoque."
           }
           buttonText={"Gerenciar estoque"}
+          link={"/product/form"}
         />
 
         <Card
