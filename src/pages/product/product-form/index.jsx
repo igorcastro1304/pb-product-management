@@ -20,14 +20,12 @@ export default function ProductForm() {
   const handleDelete = (id) => {
     const productToDelete = products.find((product) => product.id === id);
     saveToReport("deleted", productToDelete);
-
     setProducts(products.filter((product) => product.id !== id));
   };
 
   const handleEdit = (id, updatedProduct) => {
     const productToEdit = products.find((product) => product.id === id);
     saveToReport("edited", { ...productToEdit, ...updatedProduct });
-
     setProducts(
       products.map((product) =>
         product.id === id ? { ...product, ...updatedProduct } : product
