@@ -37,6 +37,7 @@ export default function Dashboard() {
             "Clique aqui para visualizar os relatórios relacionados às movimentações de produtos."
           }
           buttonText={"Abrir relatórios"}
+          link={"/report"}
         />
       </div>
     </>
