@@ -4,6 +4,7 @@ import {
   signOut,
   onAuthStateChanged,
   getAuth,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
@@ -24,6 +25,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,10 +57,24 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  const createNewUser = async (email, password) => {
+    return await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const newUser = { email, password };
+        setUsers((prevUsers) => [...prevUsers, newUser]);
+        alert("Usuário criado com sucesso!");
+      })
+      .catch((error) => {
+        alert("Não foi possível criar o novo usuário!");
+      });
+  };
+
   const value = {
     currentUser,
     login,
     logout,
+    createNewUser,
+    users,
   };
 
   return (

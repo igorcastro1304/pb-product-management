@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { userSchema } from "../../../utils/validator";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useAuth } from "../../../contexts/AuthContext";
 
 export default function UserForm() {
+  const { createNewUser } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -11,8 +14,13 @@ export default function UserForm() {
     resolver: yupResolver(userSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("Usuário cadastrado:", data);
+  const onSubmit = async (data) => {
+    try {
+      await createNewUser(data.email, data.password);
+      console.log("Usuário cadastrado:", data);
+    } catch (error) {
+      console.log("Erro ao cadastrar usuário:", error);
+    }
   };
 
   return (
@@ -55,7 +63,6 @@ export default function UserForm() {
         )}
       </div>
 
-      {/* Botão de Enviar */}
       <div className="flex items-center justify-between">
         <button
           type="submit"
