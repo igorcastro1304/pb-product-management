@@ -6,11 +6,28 @@ export default function ProductForm() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const saveToReport = (actionType, product) => {
+    const timestamp = new Date().toLocaleString();
+    const action = { actionType, product, timestamp };
+
+    const report = JSON.parse(localStorage.getItem("@product_report")) || [];
+
+    report.push(action);
+
+    localStorage.setItem("@product_report", JSON.stringify(report));
+  };
+
   const handleDelete = (id) => {
+    const productToDelete = products.find((product) => product.id === id);
+    saveToReport("deleted", productToDelete);
+
     setProducts(products.filter((product) => product.id !== id));
   };
 
   const handleEdit = (id, updatedProduct) => {
+    const productToEdit = products.find((product) => product.id === id);
+    saveToReport("edited", { ...productToEdit, ...updatedProduct });
+
     setProducts(
       products.map((product) =>
         product.id === id ? { ...product, ...updatedProduct } : product

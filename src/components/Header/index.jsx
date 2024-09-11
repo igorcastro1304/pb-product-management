@@ -13,7 +13,6 @@ import { useAuth } from "../../contexts/AuthContext";
 
 export function Header(props) {
   const { currentUser } = useAuth();
-  console.log(currentUser);
 
   const [openNav, setOpenNav] = React.useState(false);
 
@@ -64,8 +63,8 @@ export function Header(props) {
   );
 
   return (
-    <div className="max-h-[768px] w-screen bg-black">
-      <Navbar className="z-10 max-w-full px-4 py-2 rounded-none h-max lg:px-8 lg:py-4">
+    <div className="w-screen bg-black ">
+      <Navbar className="z-10 max-w-full px-4 py-2 rounded-none lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link
             to="/"

@@ -10,6 +10,7 @@ import UserList from "./pages/user/user-list/index.jsx";
 import UserForm from "./pages/user/user-form/index.jsx";
 import ProductList from "./pages/product/product-list/index.jsx";
 import ProductForm from "./pages/product/product-form/index.jsx";
+import Report from "./pages/report/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "product/form",
         element: <ProductForm />,
+      },
+      {
+        path: "report",
+        element: <Report />,
       },
     ],
   },
